@@ -1,5 +1,5 @@
 const clientId = "5fc64ff558c5439aa373ccf7775a3972";
-const redirectUri = "http://localhost:3000/callback";
+const redirectUri = "http://chase.surge.sh";
 let accessToken;
 
 
@@ -50,7 +50,6 @@ const Spotify = {
 				.then(response => response.json())
 				.then(jsonResponse => {
 						if(!jsonResponse.id) {alert("You are not logged in. Please log into Spotify first so we know who you are.");}
-						// else {return jsonResponse.map((profile) => {return userId = profile.id;})}})
 						else {return userId = jsonResponse.id;}})
 
 				.then(() => {return fetch(`https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/users/${userId}/playlists`, {
@@ -61,7 +60,7 @@ const Spotify = {
 				.then(response => response.json())
 				.then(jsonResponse => {
 					if (!jsonResponse.id) { alert("You have not saved it yet. Please try again")}
-					// else {return jsonResponse.map(playlistInfo => {return playlistID = playlistInfo.id})}})
+
 					else {return playlistID = jsonResponse.id}})
 				.then(() => {return fetch(`https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/users/${userId}/playlists/${playlistID}/tracks`, {
 					headers:{Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json'},
