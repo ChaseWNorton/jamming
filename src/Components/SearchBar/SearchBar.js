@@ -3,11 +3,28 @@ import './SearchBar.css';
 
 
 class SearchBar extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {term: ''};
+		this.handleSearch = this.handleSearch.bind(this);
+		this.handleTermChange = this.handleTermChange.bind(this);
+	}
+
+	handleSearch() {
+		this.props.onSearch(this.state.term);
+	}
+
+	handleTermChange(e) {
+		const term = e.target.value;
+		this.setState({term: term});
+	}
+//ASK WHY IS IT BEST TO DO IT THIS WAY
 	render() {
 		return(
 			<div className="SearchBar">
-			  <input placeholder="Enter A Song, Album, or Artist" />
-			  <a>SEARCH</a>
+			  <input onChange={this.handleTermChange} placeholder="Enter A Song, Album, or Artist" />
+			  <a onClick={this.handleSearch}>SEARCH</a>
 			</div>
 		);
 	}
