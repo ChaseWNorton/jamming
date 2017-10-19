@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
 		const term = e.target.value;
 		this.setState({term: term});
 	}
-//ASK WHY IS IT BEST TO DO IT THIS WAY
+
 	render() {
 		return(
 			<div className="SearchBar">

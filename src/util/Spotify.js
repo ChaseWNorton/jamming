@@ -49,7 +49,7 @@ const Spotify = {
 		return fetch('https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/me', {headers: {Authorization: `Bearer ${accessToken}`}})
 				.then(response => response.json())
 				.then(jsonResponse => {
-						if(!jsonResponse.id) {return alert("You are not logged in. Please log into Spotify first so we know who you are.");}
+						if(!jsonResponse.id) {alert("You are not logged in. Please log into Spotify first so we know who you are.");}
 						// else {return jsonResponse.map((profile) => {return userId = profile.id;})}})
 						else {return userId = jsonResponse.id;}})
 
@@ -60,7 +60,7 @@ const Spotify = {
 
 				.then(response => response.json())
 				.then(jsonResponse => {
-					if (!jsonResponse) {return alert("You have not saved it yet. Please try again")}
+					if (!jsonResponse.id) { alert("You have not saved it yet. Please try again")}
 					// else {return jsonResponse.map(playlistInfo => {return playlistID = playlistInfo.id})}})
 					else {return playlistID = jsonResponse.id}})
 				.then(() => {return fetch(`https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/users/${userId}/playlists/${playlistID}/tracks`, {
