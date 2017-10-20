@@ -16,6 +16,7 @@ class TrackList extends React.Component {
 									key={track.id}
 									onAdd={this.props.onAdd}
 									onRemove={this.props.onRemove}
+									preview={track.preview}
 							/>)}
 			</div>
 		);

@@ -31,7 +31,7 @@ addTrack(track){
 	let addTrackCheck = this.state.playlistTracks.filter((playlistTrack) => playlistTrack.id === track.id);
 	if (addTrackCheck.length === 0) {
 			this.setState({playlistTracks: [...this.state.playlistTracks, track]});
-			} else {console.log("Its already here")}
+			} else {alert("You've already added this track to your playlist")}
 }
 
 removeTrack(track){

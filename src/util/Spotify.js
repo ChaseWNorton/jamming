@@ -1,5 +1,6 @@
 const clientId = "5fc64ff558c5439aa373ccf7775a3972";
-const redirectUri = "http://chase.surge.sh";
+// const redirectUri = "http://chase.surge.sh";
+const redirectUri = "http://localhost:3000";
 let accessToken;
 
 
@@ -37,6 +38,7 @@ const Spotify = {
 												artist: track.artists[0].name,
 												album: track.album.name,
 												uri: track.uri,
+												preview: track.preview_url,
 											}})}})
 	},
 
